@@ -1,0 +1,642 @@
+/* CSS العام للموقع */
+body {
+    font-family: 'Hanken Grotesk', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    direction: ltr;
+}
+
+/* تحميل أولي */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader-inner-wrapper {
+    text-align: center;
+}
+
+/* الرسوم المتحركة للتحميل */
+.ball-scale-multiple {
+    position: relative;
+    transform: translateY(-30px);
+}
+
+.ball-scale-multiple > div {
+    background-color: #4a6cf7;
+    border-radius: 100%;
+    margin: 2px;
+    animation-fill-mode: both;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    margin: 0;
+    width: 60px;
+    height: 60px;
+    animation: ball-scale-multiple 1s 0s linear infinite;
+}
+
+.ball-scale-multiple > div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.ball-scale-multiple > div:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes ball-scale-multiple {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* الهيدر */
+.ar-wa-header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.ar-wa-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.ar-wa-header-content-l {
+    display: flex;
+    align-items: center;
+}
+
+.logo-wrapper img {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.ar-wa-header-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    color: #4a6cf7;
+}
+
+/* نموذج البحث */
+.search-form-wrapper {
+    position: relative;
+}
+
+#search-form {
+    position: relative;
+}
+
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 30px;
+    padding: 8px 15px;
+}
+
+.search-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    opacity: 0.6;
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 200px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* التنقل */
+.ar-wa-view-nav {
+    margin: 20px 0;
+}
+
+.ar-wa-view-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.ar-wa-view-nav-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.ar-wa-view-nav-item:hover {
+    background-color: #f0f0f0;
+}
+
+.ar-wa-view-nav-item-active {
+    background-color: #4a6cf7;
+    color: #fff;
+}
+
+.ar-wa-view-nav-item-active:hover {
+    background-color: #3a5bd9;
+}
+
+.ar-wa-nav-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* الأقسام الرئيسية */
+.ar-wa-f-w {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.ar-wa-f-l-w {
+    width: 250px;
+    padding-right: 20px;
+}
+
+.ar-wa-f-r-w {
+    flex: 1;
+}
+
+/* التطبيقات المميزة */
+.featured-section {
+    margin-bottom: 30px;
+}
+
+.featured-apps-content {
+    display: flex;
+}
+
+.featured-apps-content-l {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.featured-apps-slider {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.featured-app-slider-item {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.featured-app-slider-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+}
+
+.featured-app-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
+    z-index: 1;
+}
+
+.featured-app-c-l {
+    margin-right: 15px;
+}
+
+.featured-app-slider-item-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.featured-app-c-r {
+    flex: 1;
+}
+
+.featured-app-tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.featured-app-slider-item-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.listing-item-rating {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255,255,255,0.2);
+    padding: 3px 8px;
+    border-radius: 20px;
+}
+
+.listing-item-rating-val {
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    margin-left: 5px;
+}
+
+.featured-app-d {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+}
+
+/* التطبيقات الرائجة */
+.trending-section {
+    width: 300px;
+}
+
+.featured-apps-trending-w {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.section-title-wrapper {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title-wrapper h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.stw-view-all {
+    font-size: 13px;
+    color: #4a6cf7;
+    cursor: pointer;
+}
+
+.trending-apps-w {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.trending-app-item {
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.trending-app-item:hover {
+    background-color: #f0f0f0;
+}
+
+.trending-app-content {
+    display: flex;
+    align-items: center;
+}
+
+.trending-app-c-l {
+    margin-right: 10px;
+}
+
+.trending-app-item-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.trending-app-tr {
+    flex: 1;
+}
+
+.trending-app-slider-item-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.listing-item-category {
+    font-size: 12px;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+.cat-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+}
+
+/* قوائم التطبيقات والألعاب */
+.listing-section {
+    margin-top: 30px;
+}
+
+.listing-content {
+    display: flex;
+}
+
+.listing-content-left, .listing-content-right {
+    flex: 1;
+}
+
+.listing-content-left {
+    margin-right: 15px;
+}
+
+.listing-content-right {
+    margin-left: 15px;
+}
+
+.listing-content-left-c, .listing-content-right-c {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.listing-item-wrapper {
+    margin-bottom: 15px;
+}
+
+.listing-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.listing-item:hover {
+    background-color: #f0f0f0;
+}
+
+.listing-item-left {
+    margin-right: 15px;
+}
+
+.listing-item-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+}
+
+.listing-item-right {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listing-item-name-w {
+    margin-bottom: 5px;
+}
+
+.listing-item-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.listing-item-meta-w {
+    display: flex;
+}
+
+.listing-item-meta-col {
+    margin-right: 15px;
+}
+
+.listing-item-meta-col-c {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #666;
+}
+
+.listing-item-meta-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    opacity: 0.7;
+}
+
+.listing-item-meta-label {
+    margin-right: 3px;
+}
+
+.listing-item-d-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #4a6cf7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.listing-item-d-btn:hover {
+    background-color: #3a5bd9;
+}
+
+.listing-item-d-btn-icon {
+    width: 12px;
+    height: 12px;
+}
+
+/* الفوتر */
+footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+
+.footer-content p {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+/* الوضع الداكن */
+.cm-d {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+.cm-d .ar-wa-header,
+.cm-d .featured-apps-trending-w,
+.cm-d .listing-content-left-c,
+.cm-d .listing-content-right-c,
+.cm-d footer {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+.cm-d .ar-wa-header-title,
+.cm-d .section-title-wrapper h3,
+.cm-d .listing-item-name,
+.cm-d .featured-app-slider-item-name,
+.cm-d .trending-app-slider-item-name {
+    color: #fff;
+}
+
+.cm-d .listing-item,
+.cm-d .trending-app-item {
+    background-color: #333;
+}
+
+.cm-d .listing-item:hover,
+.cm-d .trending-app-item:hover {
+    background-color: #3a3a3a;
+}
+
+.cm-d .search-input-wrapper {
+    background-color: #333;
+}
+
+.cm-d .search-input {
+    color: #e0e0e0;
+}
+
+.cm-d .listing-item-meta-col-c,
+.cm-d .listing-item-category,
+.cm-d .footer-content p {
+    color: #aaa;
+}
+
+/* تأثيرات الحركة */
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+/* التجاوب */
+@media (max-width: 992px) {
+    .ar-wa-f-w {
+        flex-direction: column;
+    }
+    
+    .ar-wa-f-l-w {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .featured-apps-content {
+        flex-direction: column;
+    }
+    
+    .featured-apps-content-l {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .trending-section {
+        width: 100%;
+    }
+    
+    .listing-content {
+        flex-direction: column;
+    }
+    
+    .listing-content-left, .listing-content-right {
+        margin: 0 0 20px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .ar-wa-header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .ar-wa-header-content-r {
+        margin-top: 15px;
+        width: 100%;
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+    
+    .ar-wa-view-nav ul {
+        flex-wrap: wrap;
+    }
+    
+    .ar-wa-view-nav-item {
+        margin-bottom: 10px;
+    }
+}

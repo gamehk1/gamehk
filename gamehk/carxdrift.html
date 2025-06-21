@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>GTA5 MOBILE | App Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF9F0A;
+            --primary-light: rgba(255, 159, 10, 0.15);
+            --primary-dark: #E68A00;
+            --bg-dark: #19191a;
+            --bg-light: #f8f8f8;
+            --card-dark: #232325;
+            --card-light: #fff;
+            --text-primary-dark: #fff;
+            --text-primary-light: #232323;
+            --text-secondary-dark: #dcdcdc;
+            --text-secondary-light: #444;
+        }
+        body {
+            margin: 0;
+            background: var(--bg-dark);
+            color: var(--text-primary-dark);
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+        body.light-mode {
+            background: var(--bg-light);
+            color: var(--text-primary-light);
+        }
+        .header-img-container {
+            position: relative;
+            width: 100%;
+            height: 230px;
+            background: linear-gradient(0deg,#19191a 15%,#ffe4b0b6 80%);
+            overflow: hidden;
+        }
+        .header-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.82);
+        }
+        .play-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(25,25,26,0.82);
+            color: #fff;
+            border-radius: 22px;
+            padding: 7px 24px 7px 18px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            z-index: 2;
+            box-shadow: 0 2px 16px #0004;
+        }
+        .play-btn {
+           background: transparent;
+           border: none;      /* Optional: removes any border */
+           box-shadow: none;  /* Optional: removes any shadow */
+           color: inherit;    /* Optional: inherits text/icon color */
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 28px;
+            right: 28px;
+            z-index: 999;
+            background: var(--card-dark);
+            color: #ffe09b;
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.14);
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(.3,1.4,.5,1);
+            font-size: 1.15rem;
+        }
+        body.light-mode .theme-toggle {
+            background: var(--card-light);
+            color: #E68A00;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.045);
+        }
+        .app-card-main {
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            z-index: 3;
+            margin: -46px 28px 0 28px;
+        }
+        .app-icon-hero {
+            width: 84px;
+            height: 84px;
+            border-radius: 22px;
+            box-shadow: 0 4px 14px #0006, 0 0 0 5px #19191a;
+            border: 3px solid #dadada2e;
+            background: #19191a;
+        }
+        .main-info {
+            margin-left: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+        }
+        .app-title {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: inherit;
+            margin: 0 0 6px 0;
+        }
+        .app-publisher {
+            color: #ffe09b;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .app-caption {
+            color: var(--text-secondary-dark);
+            font-size: 1rem;
+        }
+        body.light-mode .app-caption {
+            color: var(--text-secondary-light);
+        }
+        .app-meta {
+            display: flex;
+            align-items: center;
+            margin: 28px 0 13px 0;
+            gap: 36px;
+        }
+        .meta-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .meta-icon {
+            font-size: 1.25em;
+            margin-bottom: 6px;
+            color: #FF9F0A;
+        }
+        .meta-label {
+            color: #a5a5a5;
+            font-size: 0.96em;
+        }
+        .meta-value {
+            font-weight: bold;
+            color: inherit;
+            font-size: 1.09em;
+        }
+        .install-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #6d4407d5, #ff9d0ad5 100%);
+            border: none;
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 12px;
+            padding: 14px 0;
+            margin: 22px 0 10px 0;
+            cursor: pointer;
+            box-shadow: 0 2px 14px #19c37d38;
+            transition: background 0.2s;
+        }
+        .install-btn:hover {
+            background: linear-gradient(90deg, #085241, #21e683 100%);
+        }
+        .open-btn {
+            width: 100%;
+            background: transparent;
+            color: #43ffb7;
+            font-size: 1.08rem;
+            font-weight: 600;
+            border: 2px solid #43ffb7;
+            border-radius: 11px;
+            padding: 10px 0;
+            margin-bottom: 18px;
+            cursor: pointer;
+            transition: background 0.16s, color 0.12s;
+        }
+        .open-btn:hover {
+            background: #43ffb71a;
+        }
+        .actions-row {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-bottom: 12px;
+            margin-top: 0;
+        }
+        .action-btn {
+            flex: 1;
+            background: #23232c;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 9px 0;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .action-btn i { color: #FF9F0A; }
+        .action-btn:hover { background: #32323c; }
+        .main-content {
+            background: var(--card-dark);
+            border-radius: 22px;
+            margin: 24px 12px 0 12px;
+            padding: 16px 18px 30px 18px;
+            color: var(--text-primary-dark);
+        }
+        .desc-title {
+            color: #ffd58a;
+            font-size: 1.18rem;
+            font-weight: 700;
+            margin-bottom: 7px;
+            margin-top: 10px;
+        }
+        .desc-body {
+            color: #e5e5e5;
+            font-size: 1.09rem;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        .promo-img {
+            display: block;
+            width: 100%;
+            max-width: 420px;
+            margin: 18px auto 0 auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px #0005;
+        }
+        .note {
+            color: #b9b9b9;
+            font-size: 0.99em;
+            margin: 18px 0 0 0;
+            text-align: center;
+        }
+        body.light-mode .main-content {
+            background: var(--card-light);
+            color: var(--text-primary-light);
+        }
+        @media (max-width: 700px) {
+            .main-content { padding: 9px 4px 24px 4px; }
+            .promo-img { max-width: 96vw; }
+            .app-card-main { margin: -46px 11px 0 11px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme toggle button -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    <!-- Header image -->
+    <div class="header-img-container">
+        <img class="header-img" src="https://play-lh.googleusercontent.com/mUD2AtRBgY99KiJ1wUPRK7A0RHKS8Qp9UmkcwQzBBU_ATcoY6PL67sdt0KeSa-GHuQ=w526-h296-rw" alt="GTA5 MOBILE background" />
+        <button class="play-btn"><i class="fas fa-play"></i>Trailer</button>
+    </div>
+    <!-- App main card -->
+    <div class="app-card-main">
+        <img class="app-icon-hero" src="https://play-lh.googleusercontent.com/mXqeYGpIhmAull8e9BrO5REhZ8aSHsVHscvFe5JQmA5-fm3lrLzKWnfpw0gxDvx9F5EV" alt="GTA5 MOBILE" />
+        <div class="main-info">
+            </div>
+            <div>
+            <div class="app-publisher">CARX DRIFT RACING 2</div>
+            <div class="app-caption">Sports / DRIFT </div>
+        </div>
+    </div>
+    <!-- Quick info -->
+    <div class="app-meta" style="margin-left:28px;">
+        <div class="meta-box">
+            <div class="meta-icon"><i class="fas fa-user-friends"></i></div>
+            <div class="meta-label">+50 million</div>
+            <div class="meta-value"></div>
+        </div>
+        <div class="meta-box">
+            <div class="meta-icon"><i class="fas fa-star"></i></div>
+            <div class="meta-label">4.7</div>
+            <div class="meta-value"></div>
+        </div>
+        <div class="meta-box">
+            <div class="meta-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="meta-label">18+</div>
+            <div class="meta-value"></div>
+        </div>
+    </div>
+    <!-- Action buttons -->
+    <div style="margin:0 28px;">
+        <button class="install-btn"><i class="fas fa-download"></i> Install</button>
+        
+        <div class="actions-row">
+            <button class="action-btn" title="Share"><i class="fas fa-share-alt"></i>Share</button>
+            <button class="action-btn" title="Add to favorites"><i class="far fa-bookmark"></i>Add to Favorites</button>
+        </div>
+        <div class="note">
+            <i class="fas fa-mobile-alt"></i>
+            This app is available for Android And ios.
+        </div>
+    </div>
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="desc-title">CarX Drift Racing 2 (MOD, Unlimited Money)</div>
+        <div class="desc-body">
+            sequel to the popular and technological drifting on android! In this part the developer surprised many players with a list of innovations, new graphics previously not seen on mobile devices, elaborated physics, music, levels, new realistic drifting mechanics.<br>
+            <!-- <ul>
+                <li>Advanced and realistic graphics.</li>
+                <li>Multiple game modes: Solo, Multiplayer, and Online.</li>
+                <li>Continuous updates and seasons.</li>
+                <li>Easy controls and professional user experience.</li>
+                <li>Optional in-app purchases.</li>
+            </ul> -->
+        </div>
+        <img class="promo-img" src="https://play-lh.googleusercontent.com/mUD2AtRBgY99KiJ1wUPRK7A0RHKS8Qp9UmkcwQzBBU_ATcoY6PL67sdt0KeSa-GHuQ=w526-h296-rw" alt="GTA5 MOBILE Preview" />
+    </div>
+    <script>
+        // Theme toggle logic
+        function setTheme(theme) {
+            if (theme === "light") {
+                document.body.classList.add("light-mode");
+                document.getElementById("theme-toggle").innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                document.body.classList.remove("light-mode");
+                document.getElementById("theme-toggle").innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+        (function() {
+            let savedTheme = localStorage.getItem("theme");
+            if (!savedTheme) {
+                savedTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? "light" : "dark";
+            }
+            setTheme(savedTheme);
+        })();
+        document.getElementById("theme-toggle").addEventListener("click", function() {
+            const isLight = document.body.classList.contains("light-mode");
+            const newTheme = isLight ? "dark" : "light";
+            setTheme(newTheme);
+            localStorage.setItem("theme", newTheme);
+        });
+    </script>
+</body>
+</html>
